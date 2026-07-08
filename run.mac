@@ -1,0 +1,46 @@
+#MODIFY/COMMENT/UNCOMMENT, SEE THE DIFFERENCE IN THE RESULT
+/random/setSeeds 19577794 424238336
+
+#setting number of cores
+#MODIFY - SEE THE DIFFERENCE IN TIME EXECUTION
+/run/numberOfThreads 2
+
+/run/initialize
+
+#settings
+#MODIFY VERBOSE TO 1 OR 2 - SEE THE AMOUNT OF INFORMATION PRINTING
+/control/verbose 0
+/run/verbose 0
+/tracking/verbose 0
+
+#beam
+#MODIFY - CHANGE TO e+ OR proton etc.
+/gps/particle e-
+
+#coordinate distribution (radial Gauss)
+#MODIFY - CHANGE THE SPATIAL DISTRIBUTION SIGMA
+#MODIFY - COMPLEX PROBLEM - CHANGE TO Uniform distribution
+/gps/pos/centre 0. 0. -1. cm
+/gps/pos/type Beam
+/gps/pos/sigma_x 1 mm
+/gps/pos/sigma_y 1 mm
+
+#angular distribution (radial Gauss)
+#MODIFY - CHANGE THE ANGULAR DISTRIBUTION SIGMA
+#MODIFY - COMPLEX PROBLEM - CHANGE TO Uniform distribution
+/gps/ang/type beam2d
+/gps/ang/rot1 1  0  0
+/gps/ang/rot2 0 -1  0
+/gps/ang/sigma_x 1 mrad
+/gps/ang/sigma_y 1 mrad
+
+#energy distribution (constant)
+#MODIFY - CHANGE THE ENERGY
+/gps/ene/mono 500 MeV
+
+#statistics
+#MODIFY - SEE HOW FREQUENT IS PROGRESS PRINTING
+/run/printProgress 10
+
+#MODIFY THE STATISTICS, SEE HOW THE RESULTS ARE CHANGED
+/run/beamOn 1000

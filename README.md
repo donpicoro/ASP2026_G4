@@ -1,2 +1,49 @@
-# ASP2026_G4
-Simple Geant4 demosntration for the African School of Physics, Nairobi, 2026
+-------------------------------------------------------------------
+
+     =========================================================
+     Geant4 - an Object-Oriented Toolkit for Simulation in HEP
+     =========================================================
+
+                              Example
+                            -----------
+                             A. Sytov
+            INFN Ferrara Division, sytov@fe.infn.it
+
+            mildly modified by
+                          L.G. Sarmiento
+            Lund University, Luis.Sarmiento_Pico@fysik.lu.se
+
+INTRODUCTION
+This example is a training example, potentially extendable to real applications.
+
+This example serves as a guideline for users on how to add geometry, materials,
+magnetic field, inputs and outputs to their existing Geant4 projects.
+It includes the minimum necessary options to incorporate this physics.
+
+DESCRIPTION
+
+This example includes a target, a magnet and a detector positioned behind it.
+The incoming beam is set up in macro run.mac.
+
+The example does not include any input of the model or geometry parameters
+from the macro to keep it as straightforward as possible.
+
+The output is recorded into the file results.root as a set of root ntuples.
+These ntuples include:
+- crystal: particles recorded at the crystal entrance,
+- detector: all particles recorded at the detector entrance.
+
+The format of every ntuple includes the following 10 variables (columns):
+
+"eventID", "volume", "x", "y", "angle_x", "angle_y", "Ekin", "particle", "particleID", "parentID"
+
+The variables represent:
+- the event number within the run (column 0),
+- the volume, either the crystal or the detector (column 1),
+- the coordinate (x,y) and the angles (x'=dx/dz, y'=dy/dz) of the impinging particles (columns 2-6),
+- the kinetic energy of the particle (column 7),
+- the particle name (column 8),
+- the particle ID (column 9),
+- the parent ID of the particle (column 10).
+
+To visualize these data, one should either open results.root using root TBrowser or prepare a python script.
